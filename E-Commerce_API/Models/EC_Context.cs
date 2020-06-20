@@ -19,7 +19,6 @@ namespace E_Commerce_API.Models
         public DbSet<product_info> product_info { get; set; }
         public DbSet<productpicinfo> productpicinfo { get; set; }
         public DbSet<warehouse_product> warehouse_product { get; set; }
-       
-
+        public DbSet<TimeSeckill> TimeSeckill { get; set; }
     }
 }

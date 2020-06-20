@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace E_Commerce_API.Migrations
 {
@@ -145,6 +146,22 @@ namespace E_Commerce_API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TimeSeckill",
+                columns: table => new
+                {
+                    seckill_id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    product_id = table.Column<int>(nullable: false),
+                    is_seckill = table.Column<int>(nullable: false),
+                    start_seckillTime = table.Column<DateTime>(nullable: false),
+                    end_seckillTime = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TimeSeckill", x => x.seckill_id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "warehouse_product",
                 columns: table => new
                 {
@@ -184,6 +201,9 @@ namespace E_Commerce_API.Migrations
 
             migrationBuilder.DropTable(
                 name: "productpicinfo");
+
+            migrationBuilder.DropTable(
+                name: "TimeSeckill");
 
             migrationBuilder.DropTable(
                 name: "warehouse_product");
